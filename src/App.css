@@ -23,7 +23,24 @@ body{
   margin-bottom: 20px;
   text-align: center;
 }
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 8px;
+}
+.scoreboard p {
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+}
 
+.scoreboard span {
+  color: yellow;
+}
 .board{
   width: 500px;
   height: 500px;

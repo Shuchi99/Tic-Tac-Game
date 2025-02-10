@@ -9,6 +9,9 @@ function App() {
   const [player, setPlayer]= useState("O");
   const [result,setResult]=useState({winner:"none" ,state:"none"});
 
+  const [scoreX, setScoreX] = useState(0);
+  const [scoreO, setScoreO] = useState(0);
+
   useEffect(()=>{
     checkTie();
     checkWin();
@@ -24,6 +27,7 @@ function App() {
     if (result.state==="won")
     {
       alert(`Player ${result.winner} Won!`);
+      updateScore(result.winner);
       restartGame();
     }
     else if (result.state==="tie")
@@ -76,10 +80,21 @@ function App() {
     setBoard(["","","","","","","","",""]);
     setPlayer("O");
   }
+  const updateScore = (winner) => {
+    if (winner === "X") {
+      setScoreX(scoreX + 1);
+    } else if (winner === "O") {
+      setScoreO(scoreO + 1);
+    }
+  };
   return (
     <div className="App">
     <div className="game-container">
     <h1 className="heading">Tic-Tac-Toe</h1>
+    <div className="scoreboard">
+          <p>Player X Wins: <span>{scoreX}</span></p>
+          <p>Player O Wins: <span>{scoreO}</span></p>
+    </div>
     <div className="board">
     <div className="row">
       <Square val={board[0]} chooseSquare={()=>{chooseSquare(0)}}/>
